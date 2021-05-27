@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tour Bogota</string>
+    <string name="Titulo_1">Tour Bogota</string>
+    <string name="Titulo_2">Rutas</string>
+    <string name="Iniciar">Iniciar</string>
+    <string name="Ruta_1">Bozque Izquierdo</string>
+    <string name="Ruta_2">La Candelaria</string>
+    <string name="Ruta_3">Jardin Botanico</string>
+    <string name="Ruta_4">Park Way</string>
+</resources>
