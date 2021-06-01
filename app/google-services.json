@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "492930271805",
+    "firebase_url": "https://rutas-bogota-a625d-default-rtdb.firebaseio.com",
+    "project_id": "rutas-bogota-a625d",
+    "storage_bucket": "rutas-bogota-a625d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492930271805:android:cee8a20474ac293ff33854",
+        "android_client_info": {
+          "package_name": "com.example.jdros.tourbogota"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492930271805-cpvq8n0gdr5un6ladpl16u8003ff3ngf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jdros.tourbogota",
+            "certificate_hash": "19506a0994f0affcd74141c25b17e529edc25af8"
+          }
+        },
+        {
+          "client_id": "492930271805-lovpa35vntnu2pbel5c2jk7sqm5dhkeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnqTQmiQvP93_rePvawSkjZmI5Lm_HToI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492930271805-lovpa35vntnu2pbel5c2jk7sqm5dhkeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492930271805:android:587c907d435fd8a4f33854",
+        "android_client_info": {
+          "package_name": "com.example.tourbogotafirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492930271805-fjgim0ulc9lrbfdppkmhesecakukup0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tourbogotafirebase",
+            "certificate_hash": "19506a0994f0affcd74141c25b17e529edc25af8"
+          }
+        },
+        {
+          "client_id": "492930271805-lovpa35vntnu2pbel5c2jk7sqm5dhkeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnqTQmiQvP93_rePvawSkjZmI5Lm_HToI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492930271805-lovpa35vntnu2pbel5c2jk7sqm5dhkeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

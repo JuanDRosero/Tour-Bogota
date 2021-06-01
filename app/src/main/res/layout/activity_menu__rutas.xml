@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo_2"
-    tools:context=".menu_Rutas">
+    tools:context=".menuRutas">
 
     <TextView
         android:id="@+id/textView"
@@ -37,15 +37,14 @@
             android:layout_height="70dp"
             android:backgroundTint="#ADFFFFFF"
             android:onClick="pasarActivity"
-            android:text="@string/Ruta_1" />
-
+            android:text="@string/Ruta_2" />
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:backgroundTint="#ADFFFFFF"
             android:onClick="pasarActivity"
-            android:text="@string/Ruta_2" />
+            android:text="@string/Ruta_4" />
 
         <Button
             android:id="@+id/button3"
@@ -53,14 +52,12 @@
             android:layout_height="70dp"
             android:backgroundTint="#ADFFFFFF"
             android:onClick="pasarActivity"
-            android:text="@string/Ruta_3" />
+            android:text="@string/Ruta_1" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:backgroundTint="#ADFFFFFF"
-            android:onClick="pasarActivity"
-            android:text="@string/Ruta_4" />
+
+
+
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,19 +17,17 @@ public class menuRutas extends AppCompatActivity {
     }
 
     public void pasarActivity(View view){
-        String comando="select * from Rutas where PK_Rutas=";
+        String comando="Ruta1";
         switch (view.getId()){
             case R.id.button1:
-                comando+=Integer.toString(1);
+                comando="Ruta1";
                 break;
             case R.id.button2:
-                comando+=Integer.toString(2);
+                comando="Ruta2";
                 break;
+
             case R.id.button3:
-                comando+=Integer.toString(3);
-                break;
-            case R.id.button4:
-                comando+=Integer.toString(4);
+                comando="Ruta3";
                 break;
         }
 
