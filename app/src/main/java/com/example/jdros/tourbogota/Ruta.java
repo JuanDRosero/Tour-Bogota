@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.jdros.tourbogota.connection.FirebaseConnection;
+import com.example.jdros.tourbogota.connection.InterfaceCallback;
 import com.example.jdros.tourbogota.models.RutaModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,12 +29,14 @@ public class Ruta extends AppCompatActivity {
 
 
 
-    FirebaseDatabase database;
-    DatabaseReference myRef;
+
 
     private TextView tvNombre,tvDescription;
     private ImageView ivMapa;
     private String cm;
+    FirebaseConnection firebase;
+    //FirebaseDatabase database;
+    //DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,43 +46,22 @@ public class Ruta extends AppCompatActivity {
         tvNombre= (TextView) findViewById(R.id.textViewRuta);
         tvDescription=(TextView) findViewById(R.id.textViewDescripcion);
         ivMapa = (ImageView) findViewById(R.id.imageViewMapa);
-        //El comando que recibe es "select * from Rutas wherePK_Ruta=#rura"
-        /*cm=getIntent().getStringExtra("comando");
-        tvNombre.setText(cm);*/
+        firebase= new FirebaseConnection();
+        mostrarDatosRuta();
 
-        inicializarFirebase();
-        leerDatos();
+        //inicializarFirebase();
+        //leerDatos();
     }
-    private void leerDatos() {
+    public void mostrarDatosRuta(){
         cm=getIntent().getStringExtra("comando");
-        myRef.child("Rutas").child(cm).addValueEventListener(new ValueEventListener() {
+        firebase.leerRuta(cm, new InterfaceCallback<RutaModel>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-
-                    RutaModel r = dataSnapshot.getValue(RutaModel.class);
-
-                    tvNombre.setText(r.getNombre());
-                    tvDescription.setText(r.getDescripcion());
-                    Picasso.with(Ruta.this).load(r.getImgmapa()).into(ivMapa);
-                    /*list_view_rutas_adapter = new List_View_Rutas_Adapter(Ruta.this,l);
-                    List_lugares.setAdapter(list_view_lugares_adapter);*/
-
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-
+            public void onCallback(RutaModel r) {
+                tvNombre.setText(r.getNombre());
+                tvDescription.setText(r.getDescripcion());
+                Picasso.with(Ruta.this).load(r.getImgmapa()).into(ivMapa);
             }
         });
-    }
-
-    private void inicializarFirebase(){
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference();
-
     }
     public void iniciarLector(View view){
         //En este metodo se debe iniciar el lector de codigos QR
@@ -97,4 +80,34 @@ public class Ruta extends AppCompatActivity {
         intent.putExtra("ruta",cm);
         startActivity(intent);
     }
+      /*private void leerDatos() {
+        cm=getIntent().getStringExtra("comando");
+        myRef.child("Rutas").child(cm).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                    RutaModel r = dataSnapshot.getValue(RutaModel.class);
+
+                    tvNombre.setText(r.getNombre());
+                    tvDescription.setText(r.getDescripcion());
+                    Picasso.with(Ruta.this).load(r.getImgmapa()).into(ivMapa);
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
+    }
+
+    private void inicializarFirebase(){
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
+
+    }*/
 }
