@@ -1,9 +1,12 @@
 package com.example.jdros.tourbogota.models;
 
+import java.util.HashMap;
+
 public class RutaModel {
     public String nombre;
     public String descripcion;
     public String img_mapa;
+    public HashMap<String,LugarModel> pois;
    // public Lugar[] lugares;
 
     public RutaModel() {
