@@ -1,14 +1,19 @@
 package com.example.jdros.tourbogota;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jdros.tourbogota.connection.FirebaseConnection;
 import com.example.jdros.tourbogota.connection.InterfaceCallback;
 import com.example.jdros.tourbogota.models.LugarModel;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
 public class Lugares extends AppCompatActivity {
@@ -39,7 +44,25 @@ public class Lugares extends AppCompatActivity {
         // inicializarFirebase();
         //leerDatos();
     }
+    public void iniciarLector(View view){
+        //En este metodo se debe iniciar el lector de codigos QR
+        new IntentIntegrator(this).initiateScan();
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String comandoResultado;
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        comandoResult=result.getContents();
+        leerDatosLugar();
+
+        Intent intent = new Intent(this,Lugares.class);
+        intent.putExtra("comando",comandoResult);
+        intent.putExtra("ruta",id_ruta);
+        startActivity(intent);
+
+    }
 
 
     private void leerDatosLugar() {
