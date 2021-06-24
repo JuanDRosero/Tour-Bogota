@@ -6,66 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".Lugares">
 
-    <TextView
-        android:id="@+id/textViewNombreL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNombreL"
-        tools:srcCompat="@tools:sample/avatars" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewDesL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="TextView"
-        android:textColor="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <TextView
+                android:id="@+id/textViewNombreL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:text="TextView"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_sig"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="40dp"
-        android:onClick="iniciarLector"
-        android:text="Siguiente lugar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/txt_ubicacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="179dp"
-        android:layout_marginBottom="29dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDesL"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            <TextView
+                android:id="@+id/txt_ubicacion"
+                android:layout_width="76dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="174dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="179dp"
+                android:layout_marginBottom="29dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewDesL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/btn_sig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:onClick="iniciarLector"
+                android:text="Siguiente lugar"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDesL" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
