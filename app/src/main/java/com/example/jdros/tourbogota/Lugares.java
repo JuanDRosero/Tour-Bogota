@@ -17,7 +17,7 @@ import com.google.zxing.integration.android.IntentResult;
 import com.squareup.picasso.Picasso;
 
 public class Lugares extends AppCompatActivity {
-    private TextView tvNombre,tvDescripcion;
+    private TextView tvNombre,tvDescripcion,tvUbicacion, tvImperdibles;
     private ImageView iv;
     private String comandoResult;
     private String id_ruta;
@@ -34,6 +34,8 @@ public class Lugares extends AppCompatActivity {
 
         tvNombre= (TextView) findViewById(R.id.textViewNombreL);
         tvDescripcion= (TextView) findViewById(R.id.textViewDesL);
+        tvUbicacion=(TextView) findViewById(R.id.txt_ubicacion);
+        tvImperdibles=(TextView) findViewById(R.id.txt_imperdibles);
         iv=(ImageView) findViewById(R.id.imageView);
         comandoResult=getIntent().getStringExtra("comando");
         id_ruta=getIntent().getStringExtra("ruta");
@@ -70,7 +72,16 @@ public class Lugares extends AppCompatActivity {
             @Override
             public void onCallback(LugarModel value) {
                 tvNombre.setText(value.getNombre());
+                tvUbicacion.setText("Ubicado en: "+ value.getUbicacion());
                 tvDescripcion.setText(value.getDescripcion());
+                if(value.getImperdibles()!=null){
+                    tvImperdibles.setText("Imperdibles: \n"+ value.getImperdibles());
+                }else{
+
+                    tvImperdibles.setVisibility(TextView.INVISIBLE);
+                }
+
+
                 Picasso.with(Lugares.this).load(value.getImg()).into(iv);
             }
         });

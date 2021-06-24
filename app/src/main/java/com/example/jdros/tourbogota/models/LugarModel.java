@@ -3,6 +3,8 @@ package com.example.jdros.tourbogota.models;
 public class LugarModel {
     public String nombre;
     public String descripcion;
+    public String ubicacion;
+    public String imperdibles;
     public String img;
 
     public LugarModel() {
@@ -20,6 +22,14 @@ public class LugarModel {
         return img;
     }
 
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public String getImperdibles() {
+        return imperdibles;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -33,11 +43,12 @@ public class LugarModel {
     }
 
     @Override
-    public String toString() {
-        return "Lugar{" +
+    public String toString(){
+        return "Ruta{" +
                 "nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", img='" + img + '\'' +
+                ", imagen=" +img+ '\''+
+                ", ubicacion="+ ubicacion+
                 '}';
     }
 }
