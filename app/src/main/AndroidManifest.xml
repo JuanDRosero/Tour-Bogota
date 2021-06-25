@@ -13,7 +13,9 @@
             android:theme="@style/AppTheme">
 
         </activity>
-        <activity android:name=".Ruta" />
+        <activity android:name=".Ruta"
+            android:configChanges = "orientation"
+            android:screenOrientation = "portrait"/>
         <activity android:name=".menuRutas" />
         <activity android:name=".MainActivity">
             <intent-filter>
