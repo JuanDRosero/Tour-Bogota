@@ -1,6 +1,7 @@
 package com.example.jdros.tourbogota;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jdros.tourbogota.connection.FirebaseConnection;
 import com.example.jdros.tourbogota.connection.InterfaceCallback;
@@ -57,6 +59,7 @@ public class Lugares extends AppCompatActivity {
         String comandoResultado;
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         comandoResult=result.getContents();
+
         leerDatosLugar();
 
         Intent intent = new Intent(this,Lugares.class);
@@ -71,18 +74,24 @@ public class Lugares extends AppCompatActivity {
         firebase.leerLugar(comandoResult,id_ruta, new InterfaceCallback<LugarModel>() {
             @Override
             public void onCallback(LugarModel value) {
-                tvNombre.setText(value.getNombre());
-                tvUbicacion.setText("Ubicado en: "+ value.getUbicacion());
-                tvDescripcion.setText(value.getDescripcion());
-                if(value.getImperdibles()!=null){
-                    tvImperdibles.setText("Imperdibles: \n"+ value.getImperdibles());
-                }else{
+                try{
+                    tvNombre.setText(value.getNombre());
+                    tvUbicacion.setText("Ubicado en: "+ value.getUbicacion());
+                    tvDescripcion.setText(value.getDescripcion());
+                    if(value.getImperdibles()!=null){
+                        tvImperdibles.setText("Imperdibles: \n"+ value.getImperdibles());
+                    }else{
 
-                    tvImperdibles.setVisibility(TextView.INVISIBLE);
+                        tvImperdibles.setVisibility(TextView.INVISIBLE);
+                    }
+
+
+                    Picasso.with(Lugares.this).load(value.getImg()).into(iv);
+                }catch(Exception e){
+                    Toast.makeText(getApplicationContext(), "no se encontro el lugar", Toast.LENGTH_LONG).show();
+                    finish();
                 }
 
-
-                Picasso.with(Lugares.this).load(value.getImg()).into(iv);
             }
         });
 
